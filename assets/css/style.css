@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+
+   
+}
+
+.find-breweries-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h1 {
+    margin: 2rem auto 1rem auto;
+    font-size: 2rem;
+}
+
+.search-bar {
+    height: 3rem;
+    width: 70vw;
+    background-color: #E1E1E1;
+    border: 0px;
+    border-radius: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#map {
+    width: 80vw;
+    min-height: 600px;
+    border: 1px solid black;
+}
+
+.map-brewery-name {
+    color: green;
+}
