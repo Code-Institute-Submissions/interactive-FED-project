@@ -1,3 +1,21 @@
+/* Fonts */
+
+
+/* Colors */
+
+:root {
+    --maximum-yellow-red: #fcbf49ff;
+    --black-coffee: #362c28ff;
+    --celadon: #96e6b3ff;
+    --amazon: #4a7856ff;
+    --tuscany: #b7999cff;
+    --page-bg: #ffffff;
+    --search-bar: #E1E1E1;
+
+}
+  
+
+/* Commom style*/
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +23,12 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--page-bg);
 
    
 }
+
+/* Find breweries page */
 
 .find-breweries-page {
     display: flex;
@@ -24,12 +44,30 @@ h1 {
 
 .search-bar {
     height: 3rem;
-    width: 70vw;
-    background-color: #E1E1E1;
+    width: 55vw;
+    background-color: var(--search-bar);
     border: 0px;
     border-radius: 1.5rem;
     margin-bottom: 1rem;
     text-align: center;
+}
+
+.search-bar:focus {
+    outline: none;
+    filter: brightness(0.1);
+
+}
+
+.button {
+    height: 3rem;
+    width: 15vw;
+    background-color: var(--maximum-yellow-red);
+    border: 0px;
+    border-radius: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--black-coffee);
+
 }
 
 #map {

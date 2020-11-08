@@ -7,7 +7,7 @@ const initialCoordinates = {
 }
 
 function infoContainerContent(name) {
-    return  `<h2 class="map-brewery-name">${name}</h2>`;
+    return `<h2 class="map-brewery-name">${name}</h2>`;
 }
 
 let dataGuinness = {
@@ -38,30 +38,36 @@ function initMap() {
 
 function searchBreweries(event) {
 
+    console.log("searchBreweries function initiated")
+
+
+
     let location = $('#input-location').val().toLowerCase().replace(" ", "_");
-    let breweriesToMark= [];
+    let breweriesToMark = [];
 
-    //Result verification
-    //If input empty => reset
+    if (location.length == 0) {
+        
+        var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
+        
+    } else {
 
-    //else
         //loading animation
 
         //look for data
-       
         $.when(
             //$.getJSON(`apiURL${location}`)
             $.getJSON(`https://api.openbrewerydb.org/breweries?by_city=${location}`)
         ).then(
-            function(response) {
+            function (response) {
                 var breweriesResponse = response;
-                breweriesResponse.forEach(function(element) {
+                breweriesResponse.forEach(function (element) {
                     if (element.name && element.latitude && element.longitude) {
-                        console.log(element.name);
-                        breweriesToMark.push(element);                 
+                        //console.log(element.name); //remove
+                        breweriesToMark.push(element);
                     }
                 });
-            }, function(errorResponse) {
+            },
+            function (errorResponse) {
                 if (errorResponse.status === 404) {
                     $('.error-message').html(`<p>No brewery found in ${location}</p>`)
                 } else {
@@ -69,51 +75,57 @@ function searchBreweries(event) {
                     $('.error-message').html(`<p>Error ${errorResponse.responseJSON.message}</p>`)
                 }
             }
-        )
+        ).done(function () {
+            console.log(breweriesToMark.length);
+            console.log(breweriesToMark.length);
 
-        //If data empty => reset
-        //If data => create markers
+            if (breweriesToMark.length == 0) {
+                console.log("If data empty => reset")
+                //If data empty => reset
+                
+                var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
+                
 
-        
-   
-        var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
-        
-        
-        //Create marker function
-        function createMarker(breweryData) {
-            let marker = new google.maps.Marker({
-                position: {
-                    lat: parseFloat(breweryData.latitude),
-                    lng: parseFloat(breweryData.longitude)
-                },
-                map: map,
-                //icon: breweryData.icon = 'url.png'
-            });  
-        
-            let mapInfoContainer = new google.maps.InfoWindow({
-                content: infoContainerContent(breweryData.name)
-            })
-        
-            marker.addListener('click', function() {
-                mapInfoContainer.open(map, marker);
-            })
-        
-        }
-        
-        setTimeout(function() {
-            // console.log(breweriesToMark)
-            // console.log(breweriesToMark[0])
-            // console.log(breweriesToMark[0].latitude)
-            // console.log(typeof(breweriesToMark[0].latitude))
-            
-            createMarker(breweriesToMark[0])
+            } else {
+                console.log("Create markers")
+                //If data => create markers
+                let setCoordinates = {
+                    zoom: 11,
+                    center: {
+                        lat: parseFloat(breweriesToMark[0].latitude),
+                        lng: parseFloat(breweriesToMark[0].longitude)
+                    }
+                }
+                
+                function createMarker(breweryData) {
+                    let marker = new google.maps.Marker({
+                        position: {
+                            lat: parseFloat(breweryData.latitude),
+                            lng: parseFloat(breweryData.longitude)
+                        },
+                        map: map,
+                        //icon: breweryData.icon = 'url.png'
+                    });
 
-        },3000)
-        
-        
+                    let mapInfoContainer = new google.maps.InfoWindow({
+                        content: infoContainerContent(breweryData.name)
+                    })
 
-        var san = 'San Diego';
-  
-    // createMarker(/* Usar a função para criar os markers */);
+                    marker.addListener('click', function () {
+                        mapInfoContainer.open(map, marker);
+                    })
+
+                }
+
+                
+                var map = new google.maps.Map(document.getElementById("map"), setCoordinates);
+                
+                
+                for (i in breweriesToMark) {
+                    createMarker(breweriesToMark[i]);
+                }
+            }
+        });
+    }
+    var san = 'San Diego';
 }
-
