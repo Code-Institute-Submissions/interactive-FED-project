@@ -1,13 +1,17 @@
 const initialCoordinates = {
-    zoom: 2,
+    zoom: 4,
     center: {
-        lat: 11.456725,
-        lng: -30.637881
+        lat: 40.002107,
+        lng: -98.462495
     }
 }
 
-function infoContainerContent(name) {
-    return `<h2 class="map-brewery-name">${name}</h2>`;
+function infoContainerContent(name, address, url) {
+    return `
+    <h3 class="map-brewery-name">${name}</h3>
+    <h5 class="map-brewery-address">${address}</h5>
+    <h5 class="map-brewery-url"><a href="${url}" target="_blank">${url.replace('http://', '').toLowerCase()}</a></h5>
+    `;
 }
 
 let dataGuinness = {
@@ -84,9 +88,12 @@ function searchBreweries(event) {
                 //If data empty => reset
                 
                 var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
-                
+                $('.error-message').html('<p>Sorry, no breweries found at this city =(</p>')
+                $('.search').addClass('hidden');
+                $('.reset').removeClass('hidden');
 
             } else {
+                $('.error-message').html('')
                 console.log("Create markers")
                 //If data => create markers
                 let setCoordinates = {
@@ -108,7 +115,7 @@ function searchBreweries(event) {
                     });
 
                     let mapInfoContainer = new google.maps.InfoWindow({
-                        content: infoContainerContent(breweryData.name)
+                        content: infoContainerContent(breweryData.name, breweryData.street, breweryData.website_url)
                     })
 
                     marker.addListener('click', function () {
@@ -124,8 +131,26 @@ function searchBreweries(event) {
                 for (i in breweriesToMark) {
                     createMarker(breweriesToMark[i]);
                 }
+
+                $('.search').addClass('hidden');
+                $('.reset').removeClass('hidden');
             }
         });
     }
-    var san = 'San Diego';
+   
 }
+
+function resetSearch(event) {
+    $('.search').removeClass('hidden');
+    $('.reset').addClass('hidden');
+    $('#input-location').val('');
+    $('.error-message').html('');
+
+    var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);    
+}
+
+function resetButtons(event) {
+    $('.search').removeClass('hidden');
+    $('.reset').addClass('hidden');
+    $('.error-message').html('');
+};

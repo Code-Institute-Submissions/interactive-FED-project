@@ -19,22 +19,15 @@
   <body>
       
     <div class="find-breweries-page">
-        <h1>How about find some awsome breweries near you?</h1>
+        <h1>How about find some awsome breweries in the US?</h1>
 
         <div class="search-container">
-        <input type="text" placeholder="Insert you location here..." id="input-location" class="search-bar" >
-        <button  class="button" onclick="searchBreweries()" > Submit</button>
+        <input type="text" placeholder="Insert a city name here..." id="input-location" class="search-bar" onkeyup="resetButtons()">
+        <button  class="button search" onclick="searchBreweries()" >Search</button>
+        <button  class="hidden button reset" onclick="resetSearch()" >Reset</button>
         </div>
-    
-
-        
-        <div class="input-response">
-
-            <div class="loading"></div>
             
-            <div class="error-message"></div>
-
-        </div>
+        <div class="error-message"></div>
 
         <div id="map"></div>
     </div>
