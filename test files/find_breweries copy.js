@@ -39,14 +39,12 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
 }
 
+var location = $('#input-location').val().toLowerCase().replace(" ", "+");
 
 function searchBreweries(event) {
 
-    console.log("searchBreweries function initiated")
+    console.log("searchBreweries function initiated") //remove
 
-
-
-    let location = $('#input-location').val().toLowerCase().replace(" ", "_");
     let breweriesToMark = [];
 
     if (location.length == 0) {
@@ -56,6 +54,44 @@ function searchBreweries(event) {
     } else {
 
         //loading animation
+
+
+
+
+        var searchCoords;
+
+        
+
+        //get location coordinates
+        $.when(
+            //$.getJSON(`apiURL${location}`)
+            $.getJSON(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyABGC_TJRe50GSA0xE9OrZdaNFT0nQIzaw`)
+        ).then(
+            function (response) {
+                var googleResponse = response;
+                console.log(googleResponse);
+                var searchCoords = googleResponse.results[0].geometry.location
+                console.log(searchCoords);
+            },
+            function (errorResponse) {
+                if (errorResponse.status === 404) {
+                    console.log(`404 error: ${errorResponse}`)
+                } else {
+                    console.log(errorResponse);
+                    console.log(`<p>Error ${errorResponse.responseJSON.message}</p>`);
+                }
+            }
+        ).done(function () {
+
+            
+
+
+
+
+        })
+
+
+        
 
         //look for data
         $.when(
@@ -150,9 +186,21 @@ function resetSearch(event) {
 }
 
 function resetButtons(event) {
+    if ( event.key === 13 ) {
+        searchBreweries();
+    } else if ( event.key === 8 ) {
         $('.search').removeClass('hidden');
         $('.reset').addClass('hidden');
         $('.error-message').html('');
+    }
+
 };
 
+
+// document.getElementById("input-location'").addEventListener("keyup", function(event) {
+//     console.log("enter");
+//     if (event.key === 13) {
+//         searchBreweries();
+//     }
+// });
 

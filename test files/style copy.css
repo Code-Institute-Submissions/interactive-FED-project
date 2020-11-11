@@ -1,0 +1,131 @@
+/* Fonts */
+
+
+/* Colors */
+
+:root {
+    --maximum-yellow-red: #fcbf49ff;
+    --black-coffee: #362c28ff;
+    --celadon: #96e6b3ff;
+    --amazon: #4a7856ff;
+    --tuscany: #b7999cff;
+    --page-bg: #ffffff;
+    --search-bar: #E1E1E1;
+
+}
+  
+
+/* Commom style*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--page-bg);
+
+   
+}
+
+/* Find breweries page */
+
+.find-breweries-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h1 {
+    margin: 2rem auto 1rem auto;
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 2px;
+}
+
+.search-container {
+    margin-bottom: 0.5rem;
+}
+
+.search-bar {
+    height: 3rem;
+    width: 55vw;
+    background-color: var(--search-bar);
+    border: 0px;
+    border-radius: 1.5rem;
+    text-align: center;
+}
+
+.search-bar:focus {
+    outline: none;
+    filter: brightness(0.95);
+
+}
+
+.button {
+    height: 3rem;
+    width: 15vw;
+    background-color: var(--maximum-yellow-red);
+    border: 0px;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: var(--black-coffee);
+}
+.button:focus {
+    outline: none;
+    filter: brightness(1.05);
+}
+
+.error-message p{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#map {
+    width: 80vw;
+    min-height: 75vh;
+    box-shadow: 0px 1px 18px 0px #0000008a;
+    margin-top: 1rem;
+    
+}
+
+.map-brewery-name {
+    color: var(--black-coffee);
+    font-size: 1.35rem;
+}
+
+.map-brewery-address {
+    color: var(--black-coffee);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+
+.map-brewery-url a{
+    color: var(--black-coffee);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width:420px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .button {
+        width: 30vw;
+    }
+
+    #map {
+        width: 100vw;
+    }
+
+}

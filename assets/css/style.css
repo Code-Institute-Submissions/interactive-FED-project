@@ -4,10 +4,10 @@
 /* Colors */
 
 :root {
-    --maximum-yellow-red: #fcbf49ff;
-    --black-coffee: #362c28ff;
-    --celadon: #96e6b3ff;
-    --amazon: #4a7856ff;
+    --maximum-yellow-red: rgb(252, 193, 74);
+    --black-coffee: #6a564e;
+    --celadon: #96e6b3;
+    --amazon: rgb(74, 120, 86);
     --tuscany: #b7999cff;
     --page-bg: #ffffff;
     --search-bar: #E1E1E1;
@@ -24,9 +24,117 @@
 
 body {
     background-color: var(--page-bg);
-
-   
 }
+
+h1 {
+    margin: 2rem auto 1rem auto;
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 2px;
+}
+
+h2 {
+    margin: 2rem auto 1rem auto;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0 2px;
+}
+
+.button {
+    height: 3rem;
+    width: 15vw;
+    max-width: 185px;
+    background: linear-gradient(155deg, rgba(150,230,179,1) 20%, rgba(252,193,74,1) 60%);
+    border: 0px;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: var( --black-coffee);
+    font-size: 1.2rem;
+}
+
+.button:focus {
+    outline: none;
+    filter: brightness(1.05);
+}
+
+/* Index page */
+
+.index-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.index-cards {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 80%;
+    margin: 20px;
+    width: 45vw;
+    max-width: 700px;
+    max-height: 560px;
+    height: 70vh;
+    justify-items: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 7px 8px 20px 15px #00000047;
+}
+
+.card-1 {
+    margin-right: 30px;
+}
+
+.card-title {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    padding-top: 2rem;
+}
+
+.card-img {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+.card-img img{
+    width: 100%;
+    max-width: 30vw;
+}
+
+.card-sub {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: left;
+    margin-top: 20px;
+    max-width: 100%;
+    align-self: start;
+    padding: 4rem 0 0 2rem;
+    font-size: 1.5rem;
+}
+
+
+
 
 /* Find breweries page */
 
@@ -37,12 +145,7 @@ body {
 }
 
 
-h1 {
-    margin: 2rem auto 1rem auto;
-    font-size: 2rem;
-    text-align: center;
-    padding: 0 2px;
-}
+
 
 .search-container {
     margin-bottom: 0.5rem;
@@ -61,20 +164,6 @@ h1 {
     outline: none;
     filter: brightness(0.95);
 
-}
-
-.button {
-    height: 3rem;
-    width: 15vw;
-    background-color: var(--maximum-yellow-red);
-    border: 0px;
-    border-radius: 1.5rem;
-    text-align: center;
-    color: var(--black-coffee);
-}
-.button:focus {
-    outline: none;
-    filter: brightness(1.05);
 }
 
 .error-message p{
