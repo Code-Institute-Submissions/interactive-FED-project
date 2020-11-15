@@ -383,7 +383,7 @@ input[type="email"]:focus,
 #form-name,
 #form-email,
 #form-subject,
-#form-messsage {
+#form-message {
     background-color: var(--search-bar);
     border: 0px;
     border-radius: 1.5rem;
@@ -437,4 +437,8 @@ background-color: var(--amazon);
     cursor: pointer;
 }
 
-
+#send-sucess {
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--amazon);
+}
