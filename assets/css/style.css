@@ -11,7 +11,7 @@
     --amazon: #4a7856;
     --tuscany: #b7999cff;
     --page-bg: #ffffff;
-    --search-bar: #E1E1E1;
+    --search-bar: #e1e1e174;
 
 }
 
@@ -31,7 +31,7 @@ h1 {
     margin: 2rem auto 1rem auto;
     font-size: 2.6rem;
     text-align: center;
-    padding: 0 2px;
+    padding: 0 5px;
     font-weight: 500;
     font-family: Libre Franklin, sans-serif;
 
@@ -51,12 +51,13 @@ h5 {
     height: 3rem;
     width: 15vw;
     max-width: 185px;
-    background: linear-gradient(155deg, rgb(150, 230, 179) 20%, rgb(252, 193, 74) 60%);
+    background: linear-gradient(155deg, #96e6b3 20%, rgb(252, 193, 74) 60%);
     border: 0px;
     border-radius: 1.5rem;
     text-align: center;
     color: var(--black-coffee);
     font-size: 1.2rem;
+    box-shadow: 6px 7px 15px 0px #0000004f;
 }
 
 .button:focus {
@@ -77,6 +78,12 @@ h5 {
     border: 0;
     margin-top: 2px;
 
+}
+
+.navbar-toggler:focus {   
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
+  outline: 0 none;
 }
 
 
@@ -151,12 +158,14 @@ h5 {
     text-align: center;
     margin-top: 20px;
     padding-top: 2rem;
-    font-weight: 400;
-    font-family: Libre Franklin, sans-serif;
 }
 
 .card-title h3 {
     font-size: clamp(28px, 5vw, 33px);
+    font-weight: 400;
+    font-family: Libre Franklin, sans-serif;
+
+
 }
 
 .card-img {
@@ -276,7 +285,8 @@ h5 {
 
     .search-bar {
         height: 3rem;
-        width: 55vw;
+        width: 60vw;
+        margin-right: 5px;
         background-color: var(--search-bar);
         border: 0px;
         border-radius: 1.5rem;
@@ -301,7 +311,7 @@ h5 {
         height: 70vh;
         max-height: 480px;
         box-shadow: 0px 1px 18px 0px #0000008a;
-        margin-top: 4vh;
+        margin-top: 3vh;
 
     }
 
@@ -343,3 +353,88 @@ h5 {
 
 
     }
+
+
+     /* Find breweries page */
+.contact-container {
+    padding: 0 5%;
+
+}
+
+.contact-form {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.form-group label {
+    font-family: Khula, sans-serif;
+}
+
+.form-group textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+.uneditable-input:focus {   
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
+  outline: 0 none;
+}
+
+
+#form-name,
+#form-email,
+#form-subject,
+#form-messsage {
+    background-color: var(--search-bar);
+    border: 0px;
+    border-radius: 1.5rem;
+}
+
+.search-bar:focus {
+    outline: none;
+    filter: brightness(0.95);
+
+}
+
+.form-check-input{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: var(--maximum-yellow-red);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.form-check-input:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 9px;
+    color: #ffffff;
+    display: none;
+}
+
+.form-check-input:hover, .form-check-input:focus{
+    outline: none;
+    filter: brightness(0.95);
+}
+
+.form-check-input:checked {
+background-color: var(--amazon);
+}
+
+.form-check-input:checked:after {
+    display: block;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+
