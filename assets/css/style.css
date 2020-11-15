@@ -280,7 +280,7 @@ h5 {
 
 
     .search-container {
-        margin-bottom: 0.5rem;
+        margin: 0 auto 0.5rem auto;
     }
 
     .search-bar {
@@ -354,8 +354,17 @@ h5 {
 
     }
 
+/* Brewery Info page */
 
-     /* Find breweries page */
+.breweryinfo-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+
+/* Contact page */
 .contact-container {
     padding: 0 5%;
 
