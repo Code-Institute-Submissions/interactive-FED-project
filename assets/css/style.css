@@ -1,13 +1,13 @@
 /* Fonts */
-
-
-/* Colors */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');/* Colors */
 
 :root {
     --maximum-yellow-red: rgb(252, 193, 74);
     --black-coffee: #6a564e;
     --celadon: #96e6b3;
-    --amazon: rgb(74, 120, 86);
+    --amazon: #4a7856;
     --tuscany: #b7999cff;
     --page-bg: #ffffff;
     --search-bar: #E1E1E1;
@@ -28,9 +28,12 @@ body {
 
 h1 {
     margin: 2rem auto 1rem auto;
-    font-size: 2rem;
+    font-size: 2.6rem;
     text-align: center;
     padding: 0 2px;
+    font-weight: 500;
+    font-family: Libre Franklin, sans-serif;
+    
 }
 
 h2 {
@@ -38,13 +41,23 @@ h2 {
     font-size: 0.7rem;
     text-align: center;
     padding: 0 2px;
+    font-family: Taviraj, sans-serif;
+}
+
+h5 {
+    margin: 2rem auto 1rem auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 0 2px;
+    font-family: Khula, sans-serif;
 }
 
 .button {
     height: 3rem;
     width: 15vw;
     max-width: 185px;
-    background: linear-gradient(155deg, rgba(150,230,179,1) 20%, rgba(252,193,74,1) 60%);
+    background: linear-gradient(155deg, rgb(150, 230, 179) 20%, rgb(252, 193, 74) 60%);
     border: 0px;
     border-radius: 1.5rem;
     text-align: center;
@@ -57,20 +70,51 @@ h2 {
     filter: brightness(1.05);
 }
 
+
+.navbar {
+    height: 70px;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    font-family: Libre Franklin, sans-serif;
+    font-weight: 300;
+
+    
+}
+
+.header-line {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 8%, rgba(150,230,179,1) 35%, rgba(252,193,74,1) 77%);
+    height: 3px;
+}
+
 /* Index page */
 
 .index-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    justify-content: space-evenly;
+    max-height: 900px;
+    height: 90vh;
+    padding: 0 40px 0 40px;
+
 }
+
+
+.index-titles {
+    margin-bottom: 3vh;
+}
+
 
 .index-cards {
     display: flex;
     flex-direction: row;
-    height: 100%;
     width: 100%;
     margin: 0 auto;
     align-items: center;
@@ -81,12 +125,12 @@ h2 {
 .card {
     display: grid;
     grid-template-columns: 40% 60%;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 25% 65%;
     margin: 20px;
     width: 45vw;
     max-width: 700px;
-    max-height: 560px;
-    height: 70vh;
+    max-height: 600px;
+    height: 60vh;
     justify-items: center;
     align-items: center;
     border-radius: 20px;
@@ -94,7 +138,11 @@ h2 {
 }
 
 .card-1 {
-    margin-right: 30px;
+    margin-right: 50px;
+}
+
+.card-2 img {
+    padding-right: 30px;
 }
 
 .card-title {
@@ -104,8 +152,11 @@ h2 {
     grid-row-end: 2;
     text-align: center;
     margin-top: 20px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding-top: 2rem;
+    font-weight: 400; 
+
+    font-family: Libre Franklin, sans-serif;
 }
 
 .card-img {
@@ -126,13 +177,20 @@ h2 {
     grid-row-start: 2;
     grid-row-end: 3;
     text-align: left;
-    margin-top: 20px;
     max-width: 100%;
-    align-self: start;
-    padding: 4rem 0 0 2rem;
-    font-size: 1.5rem;
+    align-self: center;
+    padding: 1rem 0 0 2rem;
+    font-size: 1.2rem;
+    font-family: Khula, sans-serif;
+    font-weight: 100; 
 }
 
+.card-sub button{
+    margin-top: 20px;
+    padding-top: 5px;
+
+
+}
 
 
 
