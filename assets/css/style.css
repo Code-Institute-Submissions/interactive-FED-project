@@ -5,7 +5,7 @@
 /* Colors */
 
 :root {
-    --maximum-yellow-red: rgb(252, 193, 74);
+    --maximum-yellow-red: #fcc14a;
     --black-coffee: #6a564e;
     --celadon: #96e6b3;
     --amazon: #4a7856;
@@ -143,6 +143,8 @@ h5 {
     align-items: center;
     border-radius: 20px;
     box-shadow: 7px 8px 20px 15px #00000047;
+    background: radial-gradient(circle, rgba(255,255,255,1) 32%, rgba(249,249,249,1) 100%);
+
 }
 
 
@@ -274,10 +276,9 @@ h5 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 91vh;
+
     }
-
-
-
 
     .search-container {
         margin: 0 auto 0.5rem auto;
@@ -308,8 +309,8 @@ h5 {
 
     #map {
         width: 80vw;
-        height: 70vh;
-        max-height: 480px;
+        height: 73%;
+        /* max-height: 480px; */
         box-shadow: 0px 1px 18px 0px #0000008a;
         margin-top: 3vh;
 
@@ -361,6 +362,66 @@ h5 {
     flex-direction: column;
     align-items: center;
     height: 100%;
+}
+
+.breweries-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.info-card {
+    background: linear-gradient(139deg, rgb(150 230 179 / 85%) 0%, rgb(150 230 179 / 37%) 60%, rgb(252 193 74 / 74%) 100%);
+    padding: 40px;    
+    border-radius: 15px;
+    box-shadow: 7px 8px 20px 15px #00000047;
+    width: 330px;
+    margin: 25px;
+
+
+}
+
+.info-name h3 {
+    font-weight: 300;
+    margin-bottom: 30px;
+    font-family: Libre Franklin, sans-serif;
+    text-align: center;
+}
+
+.info-card i{
+    font-size: 2rem;
+    color: #4a7856a7;
+}
+
+.info-card p { 
+    margin-bottom: .2rem;
+    font-family: Khula, sans-serif;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+
+.info-address, .info-phone, .info-website {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    margin-bottom: 15px;
+}
+
+.info-street, .info-number, .info-url{
+    padding-top: 14px;
+}
+
+.fa-map-marker-alt {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.info-street, .info-city, .info-state {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
 }
 
 

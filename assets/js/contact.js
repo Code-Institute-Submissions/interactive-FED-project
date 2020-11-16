@@ -1,3 +1,5 @@
+
+//Function to get form info and send the message using emailJS library
 function sendMail(contactForm) {
     emailjs.send("gmail", "BrewFinder", {
         "from_name": contactForm.name.value,
