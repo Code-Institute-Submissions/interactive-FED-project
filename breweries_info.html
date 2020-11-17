@@ -57,29 +57,31 @@
         <h1>Want to know more about some brewery?</h1>
 
         <div class="search-container">
-            <input type="text" placeholder="Insert the brewery name here..." id="input-brewery-name" class="search-bar" >
+            <input type="text" placeholder="Insert name here..." id="input-brewery-name" class="search-bar" >
             <button onclick="searchInfo()" class="button search" >Search</button>
-            <button  class="hidden button reset" onclick="resetSearch()" >Reset</button>
+            <button  class="hidden button reset" onclick="infoResetSearch()" >Reset</button>
         </div>
+
+        <div class="error-message"></div>
 
         <div class="breweries-cards">
             <div class="info-card">
                 <div class="info-name">
-                    <h3>Diving Dog Brewhouse</h3>
+                    <h3>Type any part of the name above</h3>
                 </div>
                 <div class="info-address">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p class="info-street">1802 Telegraph Ave</p>
-                    <p class="info-city">Oakland</p>
-                    <p class="info-state">California</p>
+                    <p class="info-street">Some information can </p>
+                    <p class="info-city">be not found</p>
+                    <p class="info-state"></p>
                 </div>
                 <div class="info-phone">
                     <i class="fas fa-phone"></i>
-                    <p class="info-number">5103061914</p>
+                    <p class="info-number"></p>
                 </div>
                 <div class="info-website">
                     <i class="fas fa-globe"></i>
-                    <p class="info-url">www.divingdogbrew.com</p>
+                    <p class="info-url"></p>
                 </div>
             </div>
         </div>

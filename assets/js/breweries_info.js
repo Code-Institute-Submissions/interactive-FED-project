@@ -1,6 +1,13 @@
 
 
 function createCard(name, street, city, state, phone, url) {
+    let urlVerified
+    if (url == undefined) {
+        urlVerified = ""; 
+    } else {
+        urlVerified = url;
+    }
+
     return `
     <div class="info-card">
     <div class="info-name">
@@ -18,7 +25,7 @@ function createCard(name, street, city, state, phone, url) {
     </div>
     <div class="info-website">
         <i class="fas fa-globe"></i>
-        <p class="info-url">${url}</p>
+        <p class="info-url">${urlVerified}</p>
     </div>
 </div>
     `;
@@ -27,14 +34,14 @@ function createCard(name, street, city, state, phone, url) {
 //Functiaon search breweryes info
 function searchInfo(event) {
 
-    console.log("searchInfo function initiated")
+    console.log("searchInfo function initiated") //remove
 
     let searchInputData = encodeURI($('#input-brewery-name').val().toLowerCase());
     let breweriesInfoResults = [];
 
     if (searchInputData.length == 0) {
 
-       console.log("Error no data to be searched")
+       console.log("Error no data to be searched") //fix
 
     } else {
 
@@ -54,58 +61,59 @@ function searchInfo(event) {
             },
             function (errorResponse) {
                 if (errorResponse.status === 404) {
-                    $('.error-message').html(`<p>No info found in ${searchInputData}</p>`)
+                    $('.error-message').html(`<p>No info found for ${$('#input-brewery-name')}</p>`)
                 } else {
                     console.log(errorResponse);
-                    $('.error-message').html(`<p>Error ${errorResponse.responseJSON.message}</p>`)
                 }
             }
          )
         .done(function () {
-            console.log(breweriesInfoResults.length);
+            console.log(breweriesInfoResults.length); //remove
 
             if (breweriesInfoResults.length == 0) {
                 console.log("No data found and reset")
                 
-                $('.error-message').html('<p>Sorry, no breweries found at this city =(</p>') //fix
+                $('.error-message').html('<p>Sorry, no breweries found with this name</p>') //fix
                 $('.search').addClass('hidden'); //fix
                 $('.reset').removeClass('hidden');//fix
 
             } else {
-                $('.error-message').html('') //fix
-                console.log("Create cards")
+                $('.error-message').html('') 
+                $('.breweries-cards').html('');
+                console.log("Create cards") // remove
 
                 for (i in breweriesInfoResults) {
-                    $('.breweries-cards').append( createCard(
-                        breweriesInfoResults[i].name, 
-                        breweriesInfoResults[i].street, 
-                        breweriesInfoResults[i].city, 
-                        breweriesInfoResults[i].state, 
-                        breweriesInfoResults[i].phone, 
-                        breweriesInfoResults[i].url))
+
+                        $('.breweries-cards').append( createCard(
+                            breweriesInfoResults[i].name, 
+                            breweriesInfoResults[i].street, 
+                            breweriesInfoResults[i].city, 
+                            breweriesInfoResults[i].state, 
+                            breweriesInfoResults[i].phone, 
+                            breweriesInfoResults[i].url))
+                  
                 }
 
-                // $('.search').addClass('hidden');
-                // $('.reset').removeClass('hidden');
+                $('.search').addClass('hidden');
+                $('.reset').removeClass('hidden');
             }
         });
     }
 
 }
 
-// function resetSearch(event) {
-//     $('.search').removeClass('hidden');
-//     $('.reset').addClass('hidden');
-//     $('#input-location').val('');
-//     $('.error-message').html('');
+function infoResetSearch(event) {
+    $('.search').removeClass('hidden');
+    $('.reset').addClass('hidden');
+    $('#input-brewery-name').val('');
+    $('.error-message').html('');
+    $('.breweries-cards').html('');
+}
 
-//     var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
-// }
-
-// function resetButtons(event) {
-//         $('.search').removeClass('hidden');
-//         $('.reset').addClass('hidden');
-//         $('.error-message').html('');
-// };
+function resetButtons(event) {
+        $('.search').removeClass('hidden');
+        $('.reset').addClass('hidden');
+        $('.error-message').html('');
+};
 
 

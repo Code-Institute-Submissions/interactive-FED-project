@@ -385,9 +385,12 @@ h5 {
 
 .info-name h3 {
     font-weight: 300;
-    margin-bottom: 30px;
     font-family: Libre Franklin, sans-serif;
     text-align: center;
+    font-size: 1.6rem;
+    height: 90px;
+
+
 }
 
 .info-card i{
@@ -409,8 +412,21 @@ h5 {
     margin-bottom: 15px;
 }
 
+.info-address {
+    height: 100px;
+}
+
+.info-phone {
+    height: 40px;
+}
+
+.info-website {
+    height: 30px;
+}
+
+
 .info-street, .info-number, .info-url{
-    padding-top: 14px;
+    padding-top: 7px;
 }
 
 .fa-map-marker-alt {
