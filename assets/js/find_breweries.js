@@ -1,3 +1,4 @@
+//Map inital coordinates
 const initialCoordinates = {
     zoom: 4,
     center: {
@@ -5,7 +6,7 @@ const initialCoordinates = {
         lng: -98.462495
     }
 }
-
+//Function to create pin flag
 function infoContainerContent(name, address, url) {
     return `
     <h3 class="map-brewery-name">${name}</h3>
@@ -14,32 +15,12 @@ function infoContainerContent(name, address, url) {
     `;
 }
 
-let dataGuinness = {
-    coords: {
-        lat: 53.341903,
-        lng: -6.286789
-    },
-    name: 'Guinness'
-    //icon: 'url.png'
-}
-
-let dataSmithwick = {
-    coords: {
-        lat: 52.654359,
-        lng: -7.254142
-    },
-    name: "Smithwick's"
-    //icon: 'url.png'
-}
-
-
-
 //Load Map
 function initMap() {
     var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
 }
 
-
+// Function to search breweries in the location inserted
 function searchBreweries(event) {
 
     console.log("searchBreweries function initiated")
