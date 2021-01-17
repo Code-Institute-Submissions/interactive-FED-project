@@ -1,8 +1,8 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');
-/* Colors */
 
+/* Colors */
 :root {
     --maximum-yellow-red: #fcc14a;
     --black-coffee: #6a564e;
@@ -14,7 +14,6 @@
 
 }
 
-
 /* Commom style*/
 * {
     margin: 0;
@@ -22,7 +21,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     background-color: var(--page-bg);
     height: 100%;
     width: 100%;
@@ -68,7 +68,6 @@ h5 {
     filter: brightness(1.05);
 }
 
-
 .navbar {
     height: 70px;
 }
@@ -80,16 +79,13 @@ h5 {
 .navbar-toggler {
     border: 0;
     margin-top: 2px;
-
 }
 
-.navbar-toggler:focus {   
-  border: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
-  outline: 0 none;
+.navbar-toggler:focus {
+    border: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
+    outline: 0 none;
 }
-
-
 
 .nav-item {
     font-size: 1.2rem;
@@ -106,7 +102,7 @@ h5 {
 footer {
     width: 100%;
     min-height: 100px;
-    background-color: #e1e1e1 ;
+    background-color: #e1e1e1;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -118,9 +114,6 @@ footer {
     margin-top: 30px;
     position: fixed;
 }
-
-
-
 
 .footer-items {
     display: flex;
@@ -137,37 +130,20 @@ footer {
 .social-icons {
     display: flex;
     flex-direction: row;
-    gap: 10px;   
+    gap: 10px;
 }
 
-.social-icons i{
+.social-icons i {
     font-size: 2rem;
     color: rgb(96, 90, 90);
 }
 
-.social-icons i:hover, .social-icons i:focus,{
+.social-icons i:hover,
+.social-icons i:focus {
     color: rgb(121, 117, 117);
 }
 
-@media only screen and (max-width:420px) {
-    footer {
-        position: inherit;
-    }
-
-    .footer-items {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-items p {
-        padding-top: 10px;
-        font-size: .9rem;
-    }
-
-}
-
 /* Index page */
-
 .index-container {
     display: flex;
     flex-direction: column;
@@ -175,14 +151,11 @@ footer {
     justify-content: space-evenly;
     padding: 0 2% 0 2%;
     margin-bottom: 150px;
-
 }
-
 
 .index-titles {
     margin-bottom: 3vh;
 }
-
 
 .index-cards {
     display: flex;
@@ -191,7 +164,6 @@ footer {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-
 }
 
 .card {
@@ -207,16 +179,14 @@ footer {
     justify-items: center;
     align-items: center;
     border-radius: 20px;
-    box-shadow: 7px 8px 20px 15px #00000047;
-    background: radial-gradient(circle, rgba(255,255,255,1) 32%, rgba(249,249,249,1) 100%);
+    box-shadow: 7px 8px 20px 4px #00000047;
+    background: radial-gradient(circle, #fcc14a2b 32%, #96e6b338 100%);
     transition: transform 0.2s ease-in;
-
 }
 
 .card:hover {
     transform: scale(1.05);
 }
-
 
 .card-2 img {
     padding-right: 30px;
@@ -236,8 +206,6 @@ footer {
     font-size: clamp(28px, 5vw, 33px);
     font-weight: 400;
     font-family: Libre Franklin, sans-serif;
-
-
 }
 
 .card-img {
@@ -245,7 +213,6 @@ footer {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-
 }
 
 .card-img img {
@@ -270,27 +237,295 @@ footer {
 .card-sub button {
     margin-top: 20px;
     padding-top: 5px;
-
-
-
 }
 
+/* Find breweries page */
+.find-breweries-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 91vh;
+}
+
+.search-container {
+    margin: 0 auto 0.5rem auto;
+}
+
+.search-bar {
+    height: 3rem;
+    width: 60vw;
+    margin-right: 5px;
+    background-color: var(--search-bar);
+    border: 0px;
+    border-radius: 1.5rem;
+    text-align: center;
+}
+
+.search-bar:focus {
+    outline: none;
+    filter: brightness(0.95);
+}
+
+.error-message p {
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#map {
+    width: 80vw;
+    height: 73%;
+    box-shadow: 0px 1px 18px 0px #0000008a;
+    margin-top: 3vh;
+}
+
+.map-brewery-name {
+    color: var(--black-coffee);
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.map-brewery-address {
+    color: var(--black-coffee);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: .5rem;
+}
+
+.map-brewery-url a {
+    color: var(--black-coffee);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Brewery Info page */
+.breweryinfo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.breweries-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.info-card {
+    background: linear-gradient(139deg, rgb(150 230 179 / 85%) 0%, rgb(150 230 179 / 37%) 60%, rgb(252 193 74 / 74%) 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 4px 6px 20px 4px #00000047;
+    width: 330px;
+    margin: 25px;
+}
+
+.info-name h3 {
+    font-weight: 300;
+    font-family: Libre Franklin, sans-serif;
+    text-align: center;
+    font-size: 1.6rem;
+    height: 90px;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: #4a7856a7;
+}
+
+.info-card p {
+    margin-bottom: .2rem;
+    font-family: Khula, sans-serif;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+
+.info-address,
+.info-phone,
+.info-website {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    margin-bottom: 15px;
+}
+
+.info-address {
+    height: 100px;
+}
+
+.info-phone {
+    height: 40px;
+}
+
+.info-website {
+    height: 30px;
+}
+
+.info-url,
+.info-link {
+    font-size: 16px !important;
+    text-decoration: none;
+    color: #4a7856a7;
+}
+
+.info-link:hover {
+    text-decoration: none;
+    color: var(--black-coffee);
+}
+
+.info-street,
+.info-number,
+.info-url {
+    padding-top: 7px;
+}
+
+.fa-map-marker-alt {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.info-street,
+.info-city,
+.info-state {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+/* Contact page */
+.contact-container {
+    padding: 0 5%;
+}
+
+.contact-form {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.form-group label {
+    font-family: Khula, sans-serif;
+}
+
+.form-group textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+.uneditable-input:focus {
+    border: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
+    outline: 0 none;
+}
+
+#form-name,
+#form-email,
+#form-subject,
+#form-message {
+    background-color: var(--search-bar);
+    border: 0px;
+    border-radius: 1.5rem;
+}
+
+.search-bar:focus {
+    outline: none;
+    filter: brightness(0.95);
+}
+
+.form-check-input {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: var(--maximum-yellow-red);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.form-check-input:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 9px;
+    color: #ffffff;
+    display: none;
+}
+
+.form-check-input:hover,
+.form-check-input:focus {
+    outline: none;
+    filter: brightness(0.95);
+}
+
+.form-check-input:checked {
+    background-color: var(--amazon);
+}
+
+.form-check-input:checked:after {
+    display: block;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+#send-sucess {
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--amazon);
+}
+
+@media only screen and (max-width:420px) {
+
+    footer {
+        position: inherit;
+    }
+
+    .footer-items {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-items p {
+        padding-top: 10px;
+        font-size: .9rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .button {
+        width: 30vw;
+    }
+
+    #map {
+        width: 100vw;
+    }
+}
 
 @media only screen and (max-width: 990px) {
 
-
-.navbar-nav {
-    background-color: #ffffff;
-    padding: 15px 10px 12px;
-    box-shadow: 7px 9px 15px 0px #0000000f;
-    transform: translateX(-10px);
-
-}
+    .navbar-nav {
+        background-color: #ffffff;
+        padding: 15px 10px 12px;
+        box-shadow: 7px 9px 15px 0px #0000000f;
+        transform: translateX(-10px);
+    }
 
     .index-container {
         justify-content: inherit;
         margin-bottom: 0;
-
     }
 
     .index-cards {
@@ -311,10 +546,9 @@ footer {
         margin-bottom: 30px;
     }
 
-    .card-title { 
+    .card-title {
         padding-top: 0px;
         margin-top: 0px;
-
     }
 
     .card-img img {
@@ -325,277 +559,14 @@ footer {
 
     .card-2 img {
         margin-top: 15px;
-
     }
 
     .card-sub {
         padding: 0px;
         text-align: center;
-
     }
 
     .card-sub .button {
         min-width: 185px;
     }
-
-    
-}
-
-    /* Find breweries page */
-
-    .find-breweries-page {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 91vh;
-
-    }
-
-    .search-container {
-        margin: 0 auto 0.5rem auto;
-    }
-
-    .search-bar {
-        height: 3rem;
-        width: 60vw;
-        margin-right: 5px;
-        background-color: var(--search-bar);
-        border: 0px;
-        border-radius: 1.5rem;
-        text-align: center;
-    }
-
-    .search-bar:focus {
-        outline: none;
-        filter: brightness(0.95);
-
-    }
-
-    .error-message p {
-        color: red;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin: 0;
-    }
-
-    #map {
-        width: 80vw;
-        height: 73%;
-        /* max-height: 480px; */
-        box-shadow: 0px 1px 18px 0px #0000008a;
-        margin-top: 3vh;
-
-    }
-
-    .map-brewery-name {
-        color: var(--black-coffee);
-        font-size: 1.35rem;
-    }
-
-    .map-brewery-address {
-        color: var(--black-coffee);
-        font-size: 1rem;
-        font-weight: 300;
-        margin-bottom: 0px;
-    }
-
-    .map-brewery-url a {
-        color: var(--black-coffee);
-        font-size: 1rem;
-        font-weight: 400;
-    }
-
-
-    .hidden {
-        display: none;
-    }
-
-    @media only screen and (max-width:420px) {
-        h1 {
-            font-size: 1.75rem;
-        }
-
-        .button {
-            width: 30vw;
-        }
-
-        #map {
-            width: 100vw;
-        }
-
-
-    }
-
-/* Brewery Info page */
-
-.breweryinfo-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 100px;
-}
-
-.breweries-cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    justify-content: center;
-}
-
-.info-card {
-    background: linear-gradient(139deg, rgb(150 230 179 / 85%) 0%, rgb(150 230 179 / 37%) 60%, rgb(252 193 74 / 74%) 100%);
-    padding: 40px;    
-    border-radius: 15px;
-    box-shadow: 7px 8px 20px 15px #00000047;
-    width: 330px;
-    margin: 25px;
-
-
-}
-
-.info-name h3 {
-    font-weight: 300;
-    font-family: Libre Franklin, sans-serif;
-    text-align: center;
-    font-size: 1.6rem;
-    height: 90px;
-
-
-}
-
-.info-card i{
-    font-size: 2rem;
-    color: #4a7856a7;
-}
-
-.info-card p { 
-    margin-bottom: .2rem;
-    font-family: Khula, sans-serif;
-    font-size: 1.1rem;
-    padding-left: 10px;
-}
-
-.info-address, .info-phone, .info-website {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 35px 1fr;
-    margin-bottom: 15px;
-}
-
-.info-address {
-    height: 100px;
-}
-
-.info-phone {
-    height: 40px;
-}
-
-.info-website {
-    height: 30px;
-}
-
-
-.info-street, .info-number, .info-url{
-    padding-top: 7px;
-}
-
-.fa-map-marker-alt {
-    grid-column-start: 1;
-    grid-column-end: 2;
-}
-
-.info-street, .info-city, .info-state {
-    grid-column-start: 2;
-    grid-column-end: 3;
-
-}
-
-
-/* Contact page */
-.contact-container {
-    padding: 0 5%;
-
-}
-
-.contact-form {
-    max-width: 900px;
-    margin: 40px auto;
-}
-
-.form-group label {
-    font-family: Khula, sans-serif;
-}
-
-.form-group textarea:focus,
-input[type="text"]:focus,
-input[type="email"]:focus,
-.uneditable-input:focus {   
-  border: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #96e6b392;
-  outline: 0 none;
-}
-
-
-#form-name,
-#form-email,
-#form-subject,
-#form-message {
-    background-color: var(--search-bar);
-    border: 0px;
-    border-radius: 1.5rem;
-}
-
-.search-bar:focus {
-    outline: none;
-    filter: brightness(0.95);
-
-}
-
-.form-check-input{
-    appearance: none;
-    -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
-    background-color: var(--maximum-yellow-red);
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-}
-
-.form-check-input:after{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f00c";
-    font-size: 9px;
-    color: #ffffff;
-    display: none;
-}
-
-.form-check-input:hover, .form-check-input:focus{
-    outline: none;
-    filter: brightness(0.95);
-}
-
-.form-check-input:checked {
-background-color: var(--amazon);
-}
-
-.form-check-input:checked:after {
-    display: block;
-}
-
-.form-check-label {
-    font-size: 0.9rem;
-    margin-left: 4px;
-    cursor: pointer;
-}
-
-#send-sucess {
-    font-weight: 500;
-    margin-top: 15px;
-    color: var(--amazon);
 }

@@ -6,12 +6,13 @@ const initialCoordinates = {
         lng: -98.462495
     }
 }
-//Function to create pin flag
+
+//Function to create Marker Flag
 function infoContainerContent(name, address, url) {
     return `
     <h3 class="map-brewery-name">${name}</h3>
-    <h5 class="map-brewery-address">${address}</h5>
-    <h5 class="map-brewery-url"><a href="${url}" target="_blank">${url.replace('http://', '').toLowerCase()}</a></h5>
+    <p class="map-brewery-address">${address}</p>
+    <o class="map-brewery-url"><a href="${url}" target="_blank">${url.replace('http://', '').toLowerCase()}</a></o>
     `;
 }
 
@@ -23,31 +24,23 @@ function initMap() {
 // Function to search breweries in the location inserted
 function searchBreweries(event) {
 
-    console.log("searchBreweries function initiated")
-
-
-
     let location = $('#input-location').val().toLowerCase().replace(" ", "_");
     let breweriesToMark = [];
 
     if (location.length == 0) {
-        
+        //Reset map
         var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
-        
+
     } else {
-
-        //loading animation
-
-        //look for data
+        //Get data on Open Brewery DB
         $.when(
-            //$.getJSON(`apiURL${location}`)
             $.getJSON(`https://api.openbrewerydb.org/breweries?by_city=${location}`)
         ).then(
+            //Handle response
             function (response) {
                 var breweriesResponse = response;
                 breweriesResponse.forEach(function (element) {
                     if (element.name && element.latitude && element.longitude) {
-                        //console.log(element.name); //remove
                         breweriesToMark.push(element);
                     }
                 });
@@ -61,22 +54,19 @@ function searchBreweries(event) {
                 }
             }
         ).done(function () {
-            console.log(breweriesToMark.length);
-            console.log(breweriesToMark.length);
-
+            //Check if there is breweries to mark, and if not show error.
             if (breweriesToMark.length == 0) {
-                console.log("If data empty => reset")
-                //If data empty => reset
-                
+                //Reset map
                 var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
+                //Show error message
                 $('.error-message').html('<p>Sorry, no breweries found at this city =(</p>')
                 $('.search').addClass('hidden');
                 $('.reset').removeClass('hidden');
 
             } else {
                 $('.error-message').html('')
-                console.log("Create markers")
-                //If data => create markers
+
+                //Map area and zoom
                 let setCoordinates = {
                     zoom: 11,
                     center: {
@@ -84,7 +74,8 @@ function searchBreweries(event) {
                         lng: parseFloat(breweriesToMark[0].longitude)
                     }
                 }
-                
+
+                //Function to create Markeres
                 function createMarker(breweryData) {
                     let marker = new google.maps.Marker({
                         position: {
@@ -92,7 +83,6 @@ function searchBreweries(event) {
                             lng: parseFloat(breweryData.longitude)
                         },
                         map: map,
-                        //icon: breweryData.icon = 'url.png'
                     });
 
                     let mapInfoContainer = new google.maps.InfoWindow({
@@ -102,38 +92,40 @@ function searchBreweries(event) {
                     marker.addListener('click', function () {
                         mapInfoContainer.open(map, marker);
                     })
-
                 }
 
-                
+                //Load map area and zoom
                 var map = new google.maps.Map(document.getElementById("map"), setCoordinates);
-                
-                
+
+                //Create breweries Markers
                 for (i in breweriesToMark) {
                     createMarker(breweriesToMark[i]);
                 }
 
+                //Show reset button
                 $('.search').addClass('hidden');
                 $('.reset').removeClass('hidden');
             }
         });
     }
-   
 }
 
+//Reset search and page
 function resetSearch(event) {
     $('.search').removeClass('hidden');
     $('.reset').addClass('hidden');
     $('#input-location').val('');
     $('.error-message').html('');
 
-    var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);    
+    //Reset map
+    var map = new google.maps.Map(document.getElementById("map"), initialCoordinates);
 }
 
-function resetButtons(event) {
-        $('.search').removeClass('hidden');
-        $('.reset').addClass('hidden');
-        $('.error-message').html('');
-};
-
-
+//Search when pressing the Enter key
+$(function () {
+    $("#input-location").keyup(function (event) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            $("#btn-search-location").click();
+        }
+    });
+});
