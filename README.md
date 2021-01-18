@@ -91,7 +91,7 @@ Mobile:
  
 Desktop / Tablet:
  
-![wireframe desktop](assets/images/wireframe_desk.jpg).
+![wireframe desktop](assets/images/wireframe_desk.jpg)
  
 ### **Surface Plane:**
  
