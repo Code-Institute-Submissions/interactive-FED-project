@@ -50,7 +50,7 @@ h5 {
     padding: 5px;
 }
 
-.button {
+.button, .index-btn {
     height: 3rem;
     width: 15vw;
     max-width: 185px;
@@ -61,6 +61,17 @@ h5 {
     color: var(--black-coffee);
     font-size: 1.2rem;
     box-shadow: 6px 7px 15px 0px #0000004f;
+}
+
+.index-btn {
+    display: block;
+    padding-top: 12px;
+    font-weight: 400;
+}
+
+.index-btn:hover {
+    text-decoration: none;
+    color: #000000
 }
 
 .button:focus {
